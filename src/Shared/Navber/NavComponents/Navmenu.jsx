@@ -16,7 +16,7 @@ const Navmenu = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-[50%] min-h-full bg-slate-800 ">
+        <ul className="menu z-50 p-4 w-[50%] min-h-full bg-slate-800 ">
           <button className="btn-bg ">join gym</button>
           <Navlinks></Navlinks>
         </ul>

@@ -6,7 +6,7 @@ const Footer = () => {
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(24,24,24,0.75), rgba(24,24,24,0.75)), url(${img})`,
       }}
-      className="h-[500px] pt-20 bg-cover bg-no-repeat "
+      className="md:h-[500px] pt-20 bg-cover bg-no-repeat "
     >
       <footer
         style={{ boxShadow: "2px 8px 16px 4px #27282A" }}
