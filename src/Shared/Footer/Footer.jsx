@@ -1,5 +1,5 @@
-import img from "../assets/Footer/12.jpg";
-import logo from "../assets/logo/gymlogo.png";
+import img from "../../assets/Footer/12.jpg";
+import logo from "../../assets/logo/gymlogo.png";
 const Footer = () => {
   return (
     <div
@@ -14,10 +14,10 @@ const Footer = () => {
       >
         <div className="flex flex-wrap lg:flex-nowrap items-start">
           <div className="flex w-full flex-col">
-            <div className="flex items-start">
-              <img className="w-16" src={logo} alt="" />
-              <h1 className="text-3xl font-bold text-white">
-                AR<span className="text-[#FF5E00]">Gym</span>
+            <div className="flex items-center">
+              <img className="w-20" src={logo} alt="" />
+              <h1 className="text-5xl font-bold text-white">
+                AR<span className="text-[#FF7C00]">Gym</span>
               </h1>
             </div>
             <p className="lg:pr-24">
@@ -62,7 +62,7 @@ const Footer = () => {
           </form>
         </div>
         <aside>
-          <p className="text-slate-400">Copyright © 2024 - All right reserved by AR Gym</p>
+          <p className="text-slate-400 text-center">Copyright © 2024 - All right reserved by AR Gym</p>
         </aside>
       </footer>
     </div>
