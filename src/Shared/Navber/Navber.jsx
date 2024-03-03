@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import img from "../../assets/logo/gymlogo.png";
 import Navlinks from "./NavComponents/Navlinks";
 import Navmenu from "./NavComponents/Navmenu";
@@ -17,9 +18,11 @@ const Navber = () => {
           <div>
             <div className="flex uppercase text-slate-300 items-center gap-5 list-none text-xl font-semibold">
               <Navlinks></Navlinks>
+              <NavLink to='/login'>
               <button className="btn border-none text-white bg-[#FF7C00]">
-                Join Gym
+                Log in
               </button>
+              </NavLink>
             </div>
           </div>
         </div>
