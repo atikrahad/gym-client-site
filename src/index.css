@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-color{
+  color: #ff7c00;
+}
 .btn-bg {
   background-color: #ff7c00;
   color: white;
