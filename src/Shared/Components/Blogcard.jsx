@@ -11,15 +11,14 @@ const Blogcard = () => {
       </figure>
       <div className="py-5 flex flex-col">
         <div className="flex items-center gap-3">
-          <MdOutlineCalendarMonth />
-          <p>decembar, 23, 2024</p>
+          <MdOutlineCalendarMonth className="text-slate-300"/>
+          <p className="text-slate-300">decembar, 23, 2024</p>
         </div>
-        <h2 className="card-title">Shoes!</h2>
+        <h2 className="text-2xl font-medium text-white">Shoes!</h2>
         <div className="h-12 overflow-hidden ">
-          <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, vero! Nam nihil soluta similique accusamus porro et? Mollitia voluptates incidunt minima id tenetur, iusto labore dolores nostrum rem similique quod.</p>
+          <p className="text-slate-400">If a dog chews shoes whose shoes does he choose? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, vero! Nam nihil soluta similique accusamus porro et? Mollitia voluptates incidunt minima id tenetur, iusto labore dolores nostrum rem similique quod.</p>
         </div>
       </div>
-      <button className="btn-bg">Read Article</button>
     </div>
   );
 };
