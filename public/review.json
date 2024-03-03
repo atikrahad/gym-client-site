@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "name": "Alex Johnson",
+      "review": "This is an amazing product! It has significantly improved my daily routine, and I couldn't be happier with the purchase. Highly recommend to anyone looking for a reliable and efficient solution.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "name": "Samantha Lee",
+      "review": "I had high expectations based on the reviews, and I was not disappointed. The customer service was also top-notch, making the whole experience even better.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "name": "Jordan Smith",
+      "review": "While the product does what it's supposed to, I found it a bit overpriced for the features it offers. There are better alternatives out there.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fAM77H8kNDM1o_Fr6S8-qOnqhMdBPRHtxaif_VMkaGjRUQKRzt9wpJfrzSP8m8lD9W4&usqp=CAU",
+      "section": "Home Appliances"
+    }
+  ]
+  
