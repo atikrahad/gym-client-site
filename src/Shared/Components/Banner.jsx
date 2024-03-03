@@ -12,7 +12,7 @@ const Banner = ({subTitle,title,para,img, btn}) => {
         <div className="flex space-y-3 w-full md:w-[40%] mx-auto flex-col items-center">
             <h3 className="text-2xl text-slate-300">{subTitle}</h3>
             <h1 className="text-white text-4xl">{title}</h1>
-            <p className="text-slate-400 text-center">{para}</p>
+            <p className="text-slate-400 font-medium text-xl text-center">{para}</p>
             {
                 btn ? <button className="btn-bg">{btn}</button>: <BiDumbbell className="text-7xl main-color"></BiDumbbell>
             }

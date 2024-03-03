@@ -10,7 +10,7 @@ const Navlinks = () => {
         <NavLink>Plan</NavLink>
       </li>
       <li>
-        <NavLink>Trainers</NavLink>
+        <NavLink to="/trainers">Trainers</NavLink>
       </li>
       <li>
         <NavLink>Blogs</NavLink>
