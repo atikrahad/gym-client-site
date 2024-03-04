@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import img from "../../assets/Login/img.jpg";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
@@ -6,26 +6,42 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Contextapi/useAuth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
+import axiosPublic from "../../Api/axiosPublic";
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState(null);
   const { register, handleSubmit } = useForm();
   const { createAcount } = useAuth();
+  const navigate = useNavigate();
   const onSubmit = (e) => {
     const email = e.email;
     const password = e.password;
     const name = e.name;
+    const userType = "member";
+    const userInfo = {
+      email,
+      password,
+      name,
+      image,
+      userType,
+    };
     createAcount(email, password)
-    .then(res => {
-      console.log(res);
-      updateProfile(auth.currentUser,{
-        displayName: name,
-        photoURL: image
+      .then((res) => {
+        console.log(res);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: image,
+        }).then((res) => {
+          console.log(res);
+          axiosPublic.post("/user", userInfo).then((res) => {
+            console.log(res.data);
+            navigate("/");
+          });
+        });
       })
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div

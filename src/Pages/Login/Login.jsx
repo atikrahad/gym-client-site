@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import img from "../../assets/Login/img.jpg";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
@@ -6,7 +6,7 @@ import useAuth from "../../Contextapi/useAuth";
 const Login = () => {
     const [isOpen,setIsOpen] = useState(false)
     const {emailLogin, googleLogin} = useAuth()
-
+const navigate = useNavigate()
     const handleLogin = e => {
       e.preventDefault()
       const email = e.target.email.value;
@@ -14,6 +14,7 @@ const Login = () => {
       emailLogin(email,password)
       .then(res=>{
         console.log(res);
+        navigate("/")
       })
       .catch(error => {
         console.log(error);
@@ -22,7 +23,9 @@ const Login = () => {
 
     const handleGoogleLogin = ()=>{
       googleLogin()
-      .then(res=> console.log(res))
+      .then(res=> {
+        navigate("/")
+      })
       .catch(error => console.log(error))
     }
 
