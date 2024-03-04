@@ -43,7 +43,7 @@ const Navber = () => {
             <div className="flex uppercase text-slate-300 items-center gap-5 list-none text-xl font-semibold">
               <Navlinks></Navlinks>
               <NavLink to='/login'>
-              <button className="btn border-none text-white bg-[#FF7C00]">
+              <button className="btn-bg">
                 Log in
               </button>
               </NavLink>

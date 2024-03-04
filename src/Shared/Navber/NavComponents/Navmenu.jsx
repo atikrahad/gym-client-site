@@ -1,5 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import Navlinks from "./Navlinks";
+import { NavLink } from "react-router-dom";
 const Navmenu = () => {
   return (
     <div className="drawer drawer-end">
@@ -16,10 +17,10 @@ const Navmenu = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu z-50 p-4 w-[50%] min-h-full bg-slate-800 ">
-          <button className="btn-bg ">join gym</button>
+        <div className="menu z-50 p-4 w-[50%] min-h-full bg-slate-800 ">
+          <NavLink to="/login"><button className="btn-bg ">Login</button></NavLink>
           <Navlinks></Navlinks>
-        </ul>
+        </div>
       </div>
     </div>
   );

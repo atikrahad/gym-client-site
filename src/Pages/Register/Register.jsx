@@ -2,8 +2,13 @@ import { NavLink } from "react-router-dom";
 import img from "../../assets/Login/img.jpg";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = e => {
+console.log(e);
+  }
   return (
     <div
       style={{
@@ -17,16 +22,16 @@ const Register = () => {
             <h1 className="text-5xl text-white font-bold">Register now!</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-[#413c3c91]">
-            <form className="card-body ">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-slate-300">Full Name</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="name"
                   className="input input-bordered"
-                  name="name"
+                  {...register("name")}
                   required
                 />
               </div>
@@ -38,7 +43,7 @@ const Register = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
-                  name="email"
+                  {...register("email")}
                   required
                 />
               </div>
@@ -49,7 +54,7 @@ const Register = () => {
                 <input
                   type={`${isOpen ? "text" : "password"}`}
                   placeholder="password"
-                  name="password"
+                  {...register("password")}
                   className="input input-bordered"
                   required
                 />
@@ -69,6 +74,7 @@ const Register = () => {
                   <span className="label-text text-slate-300">Profile Pic</span>
                 </label>
                 <input
+                  {...register("pic")}
                   type="file"
                   className="file-input file-input-bordered w-full max-w-xs"
                 />
