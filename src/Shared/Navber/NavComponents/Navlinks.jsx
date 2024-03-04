@@ -13,7 +13,7 @@ const Navlinks = () => {
         <NavLink to="/trainers">Trainers</NavLink>
       </li>
       <li>
-        <NavLink>Blogs</NavLink>
+        <NavLink to='/allblogs'>Blogs</NavLink>
       </li>
     </>
   );

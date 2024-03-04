@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Trainers from "../Pages/Trainers/Trainers";
 import Errorpage from "../Pages/Errorpage/Errorpage";
+import Blogpage from "../Pages/Blogpage/Blogpage";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
         {
           path: "trainers",
           element: <Trainers></Trainers>
+        },
+        {
+          path: 'allblogs',
+          element: <Blogpage></Blogpage>
         }
       ]
     },
