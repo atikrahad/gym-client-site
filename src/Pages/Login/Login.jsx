@@ -2,8 +2,30 @@ import { NavLink } from "react-router-dom";
 import img from "../../assets/Login/img.jpg";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
+import useAuth from "../../Contextapi/useAuth";
 const Login = () => {
     const [isOpen,setIsOpen] = useState(false)
+    const {emailLogin, googleLogin} = useAuth()
+
+    const handleLogin = e => {
+      e.preventDefault()
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      emailLogin(email,password)
+      .then(res=>{
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }
+
+    const handleGoogleLogin = ()=>{
+      googleLogin()
+      .then(res=> console.log(res))
+      .catch(error => console.log(error))
+    }
+
   return (
     <div
       style={{
@@ -18,7 +40,7 @@ const Login = () => {
             
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-[#413c3c91]">
-            <form className="card-body ">
+            <form onSubmit={handleLogin} className="card-body ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-slate-300">Email</span>
@@ -52,7 +74,7 @@ const Login = () => {
                 <button className="btn-bg">Login</button>
               </div>
               <h1 className="text-slate-300">New member? <NavLink to='/register'>Register</NavLink></h1>
-              <button className="btn-bg">Login with Google</button>
+              <button onClick={handleGoogleLogin} className="btn-bg">Login with Google</button>
             </form>
           </div>
         </div>

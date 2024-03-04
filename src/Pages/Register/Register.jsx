@@ -23,7 +23,7 @@ const Register = () => {
         photoURL: image
       })
     })
-    .then(error => {
+    .catch(error => {
       console.log(error);
     })
   };
