@@ -3,12 +3,30 @@ import img from "../../assets/Login/img.jpg";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../Contextapi/useAuth";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../Firebase/firebase";
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [image, setImage] = useState(null);
   const { register, handleSubmit } = useForm();
-  const onSubmit = e => {
-console.log(e);
-  }
+  const { createAcount } = useAuth();
+  const onSubmit = (e) => {
+    const email = e.email;
+    const password = e.password;
+    const name = e.name;
+    createAcount(email, password)
+    .then(res => {
+      console.log(res);
+      updateProfile(auth.currentUser,{
+        displayName: name,
+        photoURL: image
+      })
+    })
+    .then(error => {
+      console.log(error);
+    })
+  };
   return (
     <div
       style={{
@@ -74,7 +92,18 @@ console.log(e);
                   <span className="label-text text-slate-300">Profile Pic</span>
                 </label>
                 <input
-                  {...register("pic")}
+                  onChange={(e) => {
+                    console.log(e.target.files[0]);
+                    const img = e.target.files[0];
+                    const data = new FormData();
+                    data.append("image", img);
+                    fetch(`${import.meta.env.VITE_imageserver}`, {
+                      method: "POST",
+                      body: data,
+                    })
+                      .then((res) => res.json())
+                      .then((data) => setImage(data.data.url));
+                  }}
                   type="file"
                   className="file-input file-input-bordered w-full max-w-xs"
                 />
