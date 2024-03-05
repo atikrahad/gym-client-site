@@ -8,6 +8,8 @@ import Errorpage from "../Pages/Errorpage/Errorpage";
 import Blogpage from "../Pages/Blogpage/Blogpage";
 import Plan from "../Pages/Planpage/Plan";
 import Profile from "../Pages/Profile/Profile";
+import Privateroute from "./Privateroute";
+import Addarticle from "../Pages/Addarticle/Addarticle";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile></Profile>
+        element: <Privateroute><Profile></Profile></Privateroute>
+      },
+      {
+        path: "addarticle",
+        element: <Privateroute><Addarticle></Addarticle></Privateroute>
       }
     ],
   },

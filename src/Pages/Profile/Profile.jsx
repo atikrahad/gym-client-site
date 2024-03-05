@@ -1,17 +1,19 @@
+// import { useState } from 'react';
 import useUser from '../../Hooks/useUser';
 const Profile = () => {
-    const [userData] = useUser()
-    const {name, email, image, userType} = userData;
+    // const [userInfo, setUserInfo]= useState(null)
+    const {userData} = useUser()
+    // const {name, email, image, userType} = userData;
     console.log(userData);
     return (
         <div className="max-w-screen-md py-40 mx-auto">
             <div className="h-64 rounded-sm bg-[#2424277a]">
             </div>
-                <img className='w-40 h-40 rounded-full relative -top-20' src={image} alt="" />
+                <img className='w-40 h-40 rounded-full relative -top-20' src={userData?.image} alt="" />
             <div className='-mt-16'>
                 <div className='flex items-end gap-2'>
-                <h1 className='text-white text-4xl'>{name}</h1>
-                <p className='text-white text-2xl'>({userType})</p>
+                <h1 className='text-white text-4xl'>{useUser?.name}</h1>
+                <p className='text-white text-2xl'>({userData?.userType})</p>
                 </div>
                 <p className='text-slate-300'>Bio</p>
             </div>
@@ -21,8 +23,8 @@ const Profile = () => {
             </div>
             <div className='flex gap-5 items-center justify-between'>
             <div className='my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]'>
-                <h1 className='text-2xl text-white'>Name: {name}</h1>
-                <h1 className='text-2xl text-white'>Email: {email}com</h1>
+                <h1 className='text-2xl text-white'>Name: {userData?.name}</h1>
+                <h1 className='text-2xl text-white'>Email: {userData?.email}com</h1>
                 <h1 className='text-2xl text-white'>Phone: N/A</h1>
             </div><div className='my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]'>
                 <h1 className='text-2xl text-white'>Country: N/A</h1>

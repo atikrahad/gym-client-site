@@ -7,8 +7,11 @@ import bannerimg from '../../assets/Home/banner/maxresdefault.jpg'
 import ResentBlogs from "./homeComponents/ResentBlogs";
 import Reviews from "./homeComponents/Reviews";
 import Whychoose from "./homeComponents/Whychoose";
+// import useUser from "../../Hooks/useUser";
 
 const Home = () => {
+// const [userData] = useUser()
+// console.log(userData);
   return (
     <div>
       <Homebenner></Homebenner>
