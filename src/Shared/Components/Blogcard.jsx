@@ -1,11 +1,14 @@
 import { MdOutlineCalendarMonth } from "react-icons/md";
 
-const Blogcard = () => {
+const Blogcard = ({item}) => {
+  const {title,image, description, date,} = item
+  console.log(date);
   return (
-    <div className="card card-compact rounded-none w-96">
+    <div className="card card-compact rounded-none ">
       <figure>
-        <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+        <img 
+        className="h-64 md:h-72"
+          src={image}
           alt="Shoes"
         />
       </figure>
@@ -14,9 +17,9 @@ const Blogcard = () => {
           <MdOutlineCalendarMonth className="text-slate-300"/>
           <p className="text-slate-300">decembar, 23, 2024</p>
         </div>
-        <h2 className="text-2xl font-medium text-white">Shoes!</h2>
+        <h2 className="text-2xl font-medium text-white">{title}</h2>
         <div className="h-12 overflow-hidden ">
-          <p className="text-slate-400">If a dog chews shoes whose shoes does he choose? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, vero! Nam nihil soluta similique accusamus porro et? Mollitia voluptates incidunt minima id tenetur, iusto labore dolores nostrum rem similique quod.</p>
+          <p className="text-slate-400">{description}</p>
         </div>
       </div>
     </div>
