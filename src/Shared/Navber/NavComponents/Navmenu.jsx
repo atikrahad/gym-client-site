@@ -22,7 +22,7 @@ const Navmenu = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu z-50 p-4 w-[50%] min-h-full bg-slate-800 ">
+        <div className="menu navlink z-50 p-4 w-[50%] min-h-full bg-slate-800 ">
         {user ? (
                 <div>
                   

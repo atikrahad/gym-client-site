@@ -1,8 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import img from "../../assets/logo/gymlogo.png";
 import Navlinks from "./NavComponents/Navlinks";
 import Navmenu from "./NavComponents/Navmenu";
 import { useEffect, useState } from "react";
+import { RxExit } from "react-icons/rx";
+import { VscAccount } from "react-icons/vsc";
+
+
+
 import useAuth from "../../Contextapi/useAuth";
 const Navber = () => {
   const [stickyclass, setStickyclass] = useState("");
@@ -45,7 +50,7 @@ const Navber = () => {
         </div>
         <div className="hidden md:contents">
           <div>
-            <div className="flex uppercase text-slate-300 items-center gap-5 list-none text-xl font-semibold">
+            <div className="flex navlink uppercase text-slate-300 items-center gap-5 list-none text-xl font-semibold">
               <Navlinks></Navlinks>
               {user ? (
                 <div>
@@ -63,10 +68,11 @@ const Navber = () => {
                       className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                     >
                       <li>
-                        <NavLink>Dashboard</NavLink>
+                        <Link className="text-slate-900" to="/profile"><VscAccount className=""/> Profile</Link>
                       </li>
                       <li>
-                        <button onClick={handleLogout}>Logout</button>
+                        
+                        <button className="text-slate-900" onClick={handleLogout}><RxExit></RxExit> LOGOUT</button>
                       </li>
                     </ul>
                   </div>

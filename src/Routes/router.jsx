@@ -7,6 +7,7 @@ import Trainers from "../Pages/Trainers/Trainers";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Blogpage from "../Pages/Blogpage/Blogpage";
 import Plan from "../Pages/Planpage/Plan";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         path: "plan",
         element: <Plan></Plan>
       },
+      {
+        path: "profile",
+        element: <Profile></Profile>
+      }
     ],
   },
   {
@@ -40,4 +45,5 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>,
   },
+  
 ]);

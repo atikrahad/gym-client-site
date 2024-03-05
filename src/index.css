@@ -21,3 +21,7 @@
     background: linear-gradient(to right, rgba(21, 21, 23, 0.834), rgba(21, 21, 23, 0.734));
     
   }
+.navlink a.active{
+  color: #ff7c00;
+  border-bottom: 2px solid #ff7c00;
+}
