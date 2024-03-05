@@ -10,6 +10,7 @@ import Plan from "../Pages/Planpage/Plan";
 import Profile from "../Pages/Profile/Profile";
 import Privateroute from "./Privateroute";
 import Addarticle from "../Pages/Addarticle/Addarticle";
+import Singlearticle from "../Pages/Sinflearticle/Singlearticle";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "addarticle",
         element: <Privateroute><Addarticle></Addarticle></Privateroute>
+      },
+      {
+        path: 'article/:id',
+        element: <Singlearticle></Singlearticle>,
       }
     ],
   },

@@ -1,28 +1,27 @@
 import { MdOutlineCalendarMonth } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-const Blogcard = ({item}) => {
-  const {title,image, description, date,} = item
+const Blogcard = ({ item }) => {
+  const { title, image, _id, description, date } = item;
   console.log(date);
   return (
-    <div className="card card-compact rounded-none ">
-      <figure>
-        <img 
-        className="h-64 md:h-72"
-          src={image}
-          alt="Shoes"
-        />
-      </figure>
-      <div className="py-5 flex flex-col">
-        <div className="flex items-center gap-3">
-          <MdOutlineCalendarMonth className="text-slate-300"/>
-          <p className="text-slate-300">decembar, 23, 2024</p>
-        </div>
-        <h2 className="text-2xl font-medium text-white">{title}</h2>
-        <div className="h-12 overflow-hidden ">
-          <p className="text-slate-400">{description}</p>
+    <Link to={`/article/${_id}`}>
+      <div className="card card-compact rounded-none ">
+        <figure>
+          <img className="h-64 md:h-72" src={image} alt="Shoes" />
+        </figure>
+        <div className="py-5 flex flex-col">
+          <div className="flex items-center gap-3">
+            <MdOutlineCalendarMonth className="text-slate-300" />
+            <p className="text-slate-300">decembar, 23, 2024</p>
+          </div>
+          <h2 className="text-2xl font-medium text-white">{title}</h2>
+          <div className="h-12 overflow-hidden ">
+            <p className="text-slate-400">{description}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
