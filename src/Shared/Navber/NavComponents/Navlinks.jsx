@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Contextapi/useAuth";
+import useUser from "../../../Hooks/useUser";
 
 const Navlinks = () => {
   const { user } = useAuth();
+  const [userData] = useUser();
   return (
     <>
       <li>
@@ -20,6 +22,11 @@ const Navlinks = () => {
       {user && (
         <li>
           <NavLink to="/addarticle">Write Article</NavLink>
+        </li>
+      )}
+      {userData?.userType === "manager" && (
+        <li>
+          <NavLink to="/management">Management</NavLink>
         </li>
       )}
     </>

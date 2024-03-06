@@ -11,6 +11,8 @@ import Profile from "../Pages/Profile/Profile";
 import Privateroute from "./Privateroute";
 import Addarticle from "../Pages/Addarticle/Addarticle";
 import Singlearticle from "../Pages/Sinflearticle/Singlearticle";
+import Management from "../Pages/GymManagement/Management";
+import ManagerRoute from "./ManagerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allblogs",
-        element: <Blogpage></Blogpage>,
+        element: <Privateroute><Blogpage></Blogpage></Privateroute>,
       },
       {
         path: "plan",
@@ -45,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: 'article/:id',
         element: <Privateroute><Singlearticle></Singlearticle></Privateroute>,
+      },
+      {
+        path: 'management',
+        element: <ManagerRoute><Management></Management></ManagerRoute>
       }
     ],
   },

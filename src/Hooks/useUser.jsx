@@ -10,11 +10,11 @@ const useUser = () => {
     //     axiosPublic.get(`/user?email=${user?.email}`)
     //     .then(res => setUserData(res.data))
     // },[user])
-    console.log(user.email);
+    console.log(user?.email);
     const {data: userData, isPending} = useQuery({
         queryKey: ["user", user?.email],
         queryFn : async () => {
-            const res = await axiosPublic.get(`/user?email=${user.email}`)
+            const res = await axiosPublic.get(`/user?email=${user?.email}`)
             return res.data;
         }
     })
