@@ -2,7 +2,7 @@
 import useUser from '../../Hooks/useUser';
 const Profile = () => {
     // const [userInfo, setUserInfo]= useState(null)
-    const {userData} = useUser()
+    const [userData] = useUser()
     // const {name, email, image, userType} = userData;
     console.log(userData);
     return (
@@ -12,7 +12,7 @@ const Profile = () => {
                 <img className='w-40 h-40 rounded-full relative -top-20' src={userData?.image} alt="" />
             <div className='-mt-16'>
                 <div className='flex items-end gap-2'>
-                <h1 className='text-white text-4xl'>{useUser?.name}</h1>
+                <h1 className='text-white text-4xl'>{userData?.name}</h1>
                 <p className='text-white text-2xl'>({userData?.userType})</p>
                 </div>
                 <p className='text-slate-300'>Bio</p>

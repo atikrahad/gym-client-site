@@ -3,9 +3,12 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../../Contextapi/useAuth";
 import axiosPublic from "../../../Api/axiosPublic";
+import { useNavigate } from "react-router-dom";
 const Articleform = () => {
   const [image, setImage] = useState(null);
   const { user } = useAuth();
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,7 +30,11 @@ const Articleform = () => {
       date,
     };
     axiosPublic.post('/article', blogInfo)
-    .then(res => console.log(res.data))
+    .then(res => {
+      console.log(res.data)
+      navigate('/allblogs')
+
+    })
 
   };
   return (
