@@ -13,6 +13,7 @@ import Addarticle from "../Pages/Addarticle/Addarticle";
 import Singlearticle from "../Pages/Sinflearticle/Singlearticle";
 import Management from "../Pages/GymManagement/Management";
 import ManagerRoute from "./ManagerRoute";
+import TrainerRoute from "./TrainerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,28 +31,52 @@ export const router = createBrowserRouter([
       },
       {
         path: "allblogs",
-        element: <Privateroute><Blogpage></Blogpage></Privateroute>,
+        element: (
+          <Privateroute>
+            <Blogpage></Blogpage>
+          </Privateroute>
+        ),
       },
       {
         path: "plan",
-        element: <Plan></Plan>
+        element: <Plan></Plan>,
       },
       {
         path: "profile",
-        element: <Privateroute><Profile></Profile></Privateroute>
+        element: (
+          <Privateroute>
+            <Profile></Profile>
+          </Privateroute>
+        ),
       },
       {
         path: "addarticle",
-        element: <Privateroute><Addarticle></Addarticle></Privateroute>
+        element: (
+          <Privateroute>
+            <TrainerRoute>
+              <Addarticle></Addarticle>
+            </TrainerRoute>
+          </Privateroute>
+        ),
       },
       {
-        path: 'article/:id',
-        element: <Privateroute><Singlearticle></Singlearticle></Privateroute>,
+        path: "article/:id",
+        element: (
+          <Privateroute>
+            <Singlearticle></Singlearticle>
+          </Privateroute>
+        ),
       },
       {
-        path: 'management',
-        element: <ManagerRoute><Management></Management></ManagerRoute>
-      }
+        path: "management",
+        element: (
+          <Privateroute>
+            <ManagerRoute>
+              <Management></Management>
+            </ManagerRoute>
+          </Privateroute>
+        ),
+      },
     ],
   },
   {
@@ -62,5 +87,4 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>,
   },
-  
 ]);

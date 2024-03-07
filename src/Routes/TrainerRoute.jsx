@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Contextapi/useAuth";
 import useUser from "../Hooks/useUser";
 
-const ManagerRoute = ({children}) => {
+const TrainerRoute = ({children}) => {
     const [userData, ] = useUser()
     const {user, loading} = useAuth()
     const location = useLocation;
@@ -12,11 +12,11 @@ const ManagerRoute = ({children}) => {
             <span className="loading w-52 main-color loading-infinity "></span>
         </div>
     }
-    if(user && userData?.userType === 'manager'){
+    if(user && userData?.userType === 'trainer'){
         return children
     }
     return <Navigate to="/login" state={{from: location}} replace></Navigate>
 
 };
 
-export default ManagerRoute;
+export default TrainerRoute;

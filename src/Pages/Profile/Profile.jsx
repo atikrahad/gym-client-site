@@ -48,11 +48,12 @@ const Profile = () => {
         >
           Update Profile
         </button>
-        {userData?.userType !== "manager"  && (
+        {userData?.userType !== "manager"  && userData?.userType !== "trainer" ? (
             <button onClick={() => setIsOpen(!isOpen)} className="btn-bg">
               Apply For Trainer
             </button>
-          )}
+          ): <div></div>
+          }
 
         <UpdateRofile isOpen={isUpdateOpen} setIsOpen={setIsUpdateOpen}></UpdateRofile>
         <TrainersApplicationform

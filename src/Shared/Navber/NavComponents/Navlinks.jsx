@@ -16,10 +16,12 @@ const Navlinks = () => {
       <li>
         <NavLink to="/trainers">Trainers</NavLink>
       </li>
-      <li>
-        <NavLink to="/allblogs">Blogs</NavLink>
-      </li>
       {user && (
+        <li>
+          <NavLink to="/allblogs">Blogs</NavLink>
+        </li>
+      )}
+      {userData?.userType === "trainer" && (
         <li>
           <NavLink to="/addarticle">Write Article</NavLink>
         </li>

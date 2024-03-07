@@ -1,9 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useQuery } from "@tanstack/react-query";
 import Banner from "../../Shared/Components/Banner";
 import img from "../../assets/Trainers/img.jpg";
 import Trainercard from "./Trainercomponents/Trainercard";
+import axiosPublic from "../../Api/axiosPublic";
+
 
 const Trainers = () => {
+  const {data: Data =[]} = useQuery({
+    queryKey: ["trainers"],
+    queryFn: async()=> {
+      const res = await axiosPublic.get(`/applications?position=${"accepted"}`)
+      return res.data
+    }
+  })
+  console.log(Data);
   return (
     <div>
       <Banner
@@ -26,8 +37,10 @@ const Trainers = () => {
             of the way.
           </p>
         </div>
-        <div className="py-10">
-            <Trainercard></Trainercard>
+        <div className="py-10 gap-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            {
+              Data?.map(item => <Trainercard key={item._id} item={item}></Trainercard>)
+            }
         </div>
       </div>
     </div>
