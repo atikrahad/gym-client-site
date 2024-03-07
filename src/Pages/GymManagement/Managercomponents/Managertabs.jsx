@@ -2,6 +2,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import Allaplication from "./Allaplication";
 import AcceptedApplication from "./AcceptedApplication";
+import Rejected from "./Rejected";
 
 export default function Managertabs() {
   return (
@@ -40,6 +41,9 @@ export default function Managertabs() {
         </TabPanel>
         <TabPanel>
           <AcceptedApplication></AcceptedApplication>
+        </TabPanel>
+        <TabPanel>
+          <Rejected></Rejected>
         </TabPanel>
         
       </Tabs>

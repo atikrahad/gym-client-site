@@ -1,15 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosPublic from "../../../Api/axiosPublic";
 
-const AcceptedApplication = () => {
-  const { data: Data = [] } = useQuery({
-    queryKey: ["accept"],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/applications?position=${"accepted"}`);
-      return res.data;
-    },
-  });
-  console.log(Data);
+const Rejected = () => {
+    const { data: Data = [] } = useQuery({
+        queryKey: ["accept"],
+        queryFn: async () => {
+          const res = await axiosPublic.get(`/applications?position=${"rejected"}`);
+          return res.data;
+        },
+      });
   return (
     <div>
       {Data?.map((item ,index) => (
@@ -41,4 +40,4 @@ const AcceptedApplication = () => {
   );
 };
 
-export default AcceptedApplication;
+export default Rejected;
