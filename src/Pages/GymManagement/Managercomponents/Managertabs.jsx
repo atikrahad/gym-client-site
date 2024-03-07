@@ -1,13 +1,17 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
+import Allaplication from "./Allaplication";
+import AcceptedApplication from "./AcceptedApplication";
 
 export default function Managertabs() {
   return (
     <div className="max-w-screen-xl mx-auto py-40">
       <Tabs>
-        <TabList className="flex navlink text-3xl mb-20 text-white gap-10">
+        <TabList className="flex flex-wrap navlink text-3xl mb-20 text-white gap-10">
           <Tab className="px-10 py-2">Dashboard</Tab>
           <Tab className="px-10 py-2">Application</Tab>
+          <Tab className="px-10 py-2">Accepted</Tab>
+          <Tab className="px-10 py-2">Rejected</Tab>
           
         </TabList>
 
@@ -32,21 +36,10 @@ export default function Managertabs() {
           </p>
         </TabPanel>
         <TabPanel>
-          <p>
-            <b>Luigi</b> (<i>Japanese: ルイージ Hepburn: Ruīji, [ɾɯ.iː.dʑi̥]</i>)
-            (<i>English: /luˈiːdʒi/; Italian: [luˈiːdʒi]</i>) is a fictional
-            character featured in video games and related media released by
-            Nintendo. Created by prominent game designer Shigeru Miyamoto, Luigi
-            is portrayed as the slightly younger but taller fraternal twin
-            brother of Nintendo's mascot Mario, and appears in many games
-            throughout the Mario franchise, often as a sidekick to his brother.
-          </p>
-          <p>
-            Source:{" "}
-            <a href="https://en.wikipedia.org/wiki/Luigi" target="_blank">
-              Wikipedia
-            </a>
-          </p>
+          <Allaplication></Allaplication>
+        </TabPanel>
+        <TabPanel>
+          <AcceptedApplication></AcceptedApplication>
         </TabPanel>
         
       </Tabs>
