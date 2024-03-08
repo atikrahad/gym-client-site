@@ -101,15 +101,15 @@ const Profile = () => {
         <h1>Followers</h1>
         <h1>Following</h1>
       </div>
-      <div className="flex gap-5 items-center justify-between">
-        <div className="my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]">
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
+        <div className="mt-10 md:my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]">
           <h1 className="text-2xl text-white">Name: {userData?.name}</h1>
           <h1 className="text-2xl text-white">Email: {userData?.email}com</h1>
           <h1 className="text-2xl text-white">
             Phone: {userData?.phone ? userData?.phone : "N/A"}
           </h1>
         </div>
-        <div className="my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]">
+        <div className="my-2 md:my-20 w-full space-y-3 p-5 rounded-sm bg-[#2424277a]">
           <h1 className="text-2xl text-white">
             Country: {userData?.country ? userData?.country : "N/A"}
           </h1>
