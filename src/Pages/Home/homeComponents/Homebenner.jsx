@@ -6,7 +6,7 @@ const Homebenner = () => {
       <div className="gradient-overlay z-10"></div>
       <video className="w-full hidden md:flex absolute" src={banner} autoPlay muted loop>
       </video>
-      <div className="relative py-20 z-20 w-full flex items-center justify-center ">
+      <div className="relative py-20 z-20 w-full flex items-center justify-center " >
         <div className="flex flex-col space-y-5 items-center justify-center">
         <p className="text-center text-xl md:text-3xl text-white">Welcome To Ar Gym</p>
         <h1 className="text-2xl font-bold md:w-[60%] md:text-5xl text-center text-red-50">It's Your Time To Gain More Healthy and Muscles</h1>

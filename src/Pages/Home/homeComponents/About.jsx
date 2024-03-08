@@ -1,9 +1,18 @@
 import image from "../../../assets/Home/about/img.jpg";
 import { MdArrowOutward } from "react-icons/md";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const About = () => {
+
+  useEffect(()=>{
+    AOS.init({})
+  }, [])
+
   return (
     <div className="flex flex-col md:flex-row py-20 gap-10 items-center max-w-screen-xl mx-auto">
-      <div className="w-full space-y-3">
+      <div className="w-full space-y-3" data-aos="zoom-in"
+     data-aos-duration="3000">
         <h3 className="text-2xl text-slate-300">WHO WE ARE</h3>
         <h1 className="text-4xl text-white">Building Your body and confidence to must exercise</h1>
         <p className="text-slate-300">
@@ -46,7 +55,8 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full" data-aos="zoom-in"
+     data-aos-duration="3000">
         <img src={image} alt="" />
       </div>
     </div>

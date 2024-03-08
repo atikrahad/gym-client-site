@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -6,7 +7,11 @@ const Blogcard = ({ item }) => {
   console.log(date);
   return (
     <Link to={`/article/${_id}`}>
-      <div className="card card-compact rounded-none ">
+      <div
+        className="card card-compact rounded-none "
+        data-aos="zoom-in"
+        data-aos-duration="3000"
+      >
         <figure>
           <img className="h-64 md:h-72" src={image} alt="Shoes" />
         </figure>

@@ -5,15 +5,14 @@ import img from "../../assets/Trainers/img.jpg";
 import Trainercard from "./Trainercomponents/Trainercard";
 import axiosPublic from "../../Api/axiosPublic";
 
-
 const Trainers = () => {
-  const {data: Data =[]} = useQuery({
+  const { data: Data = [] } = useQuery({
     queryKey: ["trainers"],
-    queryFn: async()=> {
-      const res = await axiosPublic.get(`/applications?position=${"accepted"}`)
-      return res.data
-    }
-  })
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/applications?position=${"accepted"}`);
+      return res.data;
+    },
+  });
   console.log(Data);
   return (
     <div>
@@ -26,7 +25,9 @@ const Trainers = () => {
       ></Banner>
       <div className="max-w-screen-xl py-20 mx-auto">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl text-white font-bold">Meet Our Expert Trainers</h1>
+          <h1 className="text-4xl text-white font-bold">
+            Meet Our Expert Trainers
+          </h1>
           <p className="text-slate-400 md:w-[60%] text-center">
             Meet our expert trainers: a team of seasoned professionals dedicated
             to unlocking your full potential. With years of experience in their
@@ -38,9 +39,9 @@ const Trainers = () => {
           </p>
         </div>
         <div className="py-10 gap-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {
-              Data?.map(item => <Trainercard key={item._id} item={item}></Trainercard>)
-            }
+          {Data?.map((item) => (
+            <Trainercard key={item._id} item={item}></Trainercard>
+          ))}
         </div>
       </div>
     </div>
