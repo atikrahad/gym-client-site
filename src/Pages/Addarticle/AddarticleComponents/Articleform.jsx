@@ -4,6 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../../Contextapi/useAuth";
 import axiosPublic from "../../../Api/axiosPublic";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const Articleform = () => {
   const [image, setImage] = useState(null);
   const { user } = useAuth();
@@ -33,7 +34,13 @@ const Articleform = () => {
     .then(res => {
       console.log(res.data)
       navigate('/allblogs')
-
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "successfully Published Article",
+        showConfirmButton: false,
+        timer: 1500
+      });
     })
 
   };

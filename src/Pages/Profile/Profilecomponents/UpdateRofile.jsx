@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
 import Modal from "../../../OthersComponents/Modal";
 
 import useUser from "../../../Hooks/useUser";
 import axiosPublic from "../../../Api/axiosPublic";
+import Swal from "sweetalert2";
 
 const UpdateRofile = ({ isOpen, setIsOpen }) => {
   const { register, handleSubmit, reset} = useForm();
@@ -20,6 +22,13 @@ const UpdateRofile = ({ isOpen, setIsOpen }) => {
     };
     axiosPublic.put(`/updateprofile?email=${userData?.email}`, updateProfile)
     .then(res => console.log(res.data))
+    Swal.fire({
+      
+      icon: "success",
+      title: "Updated Your profile",
+      showConfirmButton: false,
+      timer: 1500
+    });
     refetch()
     reset()
   };

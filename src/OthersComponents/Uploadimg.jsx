@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Uploadimg = ({ setImage }) => {
   return (
     <input

@@ -7,6 +7,7 @@ import useAuth from "../../Contextapi/useAuth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../Firebase/firebase";
 import axiosPublic from "../../Api/axiosPublic";
+import Swal from "sweetalert2";
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState(null);
@@ -36,6 +37,13 @@ const Register = () => {
           axiosPublic.post("/user", userInfo).then((res) => {
             console.log(res.data);
             navigate("/");
+            Swal.fire({
+              
+              icon: "success",
+              title: "Successfully sign uped",
+              showConfirmButton: false,
+              timer: 1500
+            });
           });
         });
       })

@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
 import Modal from "../../../OthersComponents/Modal";
 import useUser from "../../../Hooks/useUser";
 import axiosPublic from "../../../Api/axiosPublic";
+import Swal from "sweetalert2";
 
 const TrainersApplicationform = ({ isOpen, setIsOpen }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -32,6 +34,13 @@ const TrainersApplicationform = ({ isOpen, setIsOpen }) => {
       .post("/application", applicationInfo)
       .then((res) => console.log(res.data));
     reset();
+    Swal.fire({
+      
+      icon: "success",
+      title: "Successfully applied for trainer",
+      showConfirmButton: false,
+      timer: 1500
+    });
   };
 
   return (

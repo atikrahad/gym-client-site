@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import axiosPublic from "../../../Api/axiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
@@ -25,7 +26,13 @@ const Allaplication = () => {
       axiosPublic.put(`/updateposition?email=${email}`, updatePosition)
     .then(res => console.log(res.data))
     })
-
+    Swal.fire({
+     
+      icon: "success",
+      title: "Successfully accepted application",
+      showConfirmButton: false,
+      timer: 1500
+    });
     refetch()
     
   }
