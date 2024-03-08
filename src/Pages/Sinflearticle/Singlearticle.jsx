@@ -5,6 +5,7 @@ import useAuth from "../../Contextapi/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Singlearticle = () => {
   const location = useLocation();
@@ -71,6 +72,9 @@ const Singlearticle = () => {
 
   return (
     <div className="py-40 max-w-screen-md mx-auto">
+      <Helmet>
+        <title>Article Details</title>
+      </Helmet>
       <div>
         <img src={item.image} alt="" />
         <div className="flex items-center gap-4 py-5">

@@ -3,6 +3,7 @@ import Banner from "../../Shared/Components/Banner";
 import Blogcard from "../../Shared/Components/Blogcard";
 import img from "../../assets/blogs/img.webp";
 import axiosPublic from "../../Api/axiosPublic";
+import { Helmet } from "react-helmet";
 
 const Blogpage = () => {
   const [loadarticle, setLoadarticle] = useState([])
@@ -12,6 +13,9 @@ const Blogpage = () => {
   },[])
   return (
     <div>
+      <Helmet>
+        <title>ARGym | Articles</title>
+      </Helmet>
       <Banner
         img={img}
         para={

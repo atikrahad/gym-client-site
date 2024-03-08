@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet";
 import Banner from "../../Shared/Components/Banner";
 import img from "../../assets/blogs/img.webp";
 import Articleform from "./AddarticleComponents/Articleform";
 const Addarticle = () => {
   return (
     <div>
+      <Helmet>
+        <title>Write a Article</title>
+      </Helmet>
       <Banner
         title={"Write Article About Health and Fitness"}
         para={

@@ -4,6 +4,7 @@ import Banner from "../../Shared/Components/Banner";
 import img from "../../assets/Trainers/img.jpg";
 import Trainercard from "./Trainercomponents/Trainercard";
 import axiosPublic from "../../Api/axiosPublic";
+import { Helmet } from "react-helmet";
 
 const Trainers = () => {
   const { data: Data = [] } = useQuery({
@@ -16,6 +17,9 @@ const Trainers = () => {
   console.log(Data);
   return (
     <div>
+      <Helmet>
+        <title>ARGym | Trainers</title>
+      </Helmet>
       <Banner
         img={img}
         title={"Our Trainers"}

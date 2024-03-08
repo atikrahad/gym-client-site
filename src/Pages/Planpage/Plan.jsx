@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Helmet } from "react-helmet";
 import Banner from "../../Shared/Components/Banner";
 import img from "../../assets/plan/img.jpg";
 import { FaDollarSign } from "react-icons/fa";
@@ -7,6 +8,9 @@ import { RiTaskLine } from "react-icons/ri";
 const Plan = () => {
   return (
     <div>
+      <Helmet>
+        <title>ARGym | Plan</title>
+      </Helmet>
       <Banner
         img={img}
         title={"Pricing Plan"}

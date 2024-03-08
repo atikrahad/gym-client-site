@@ -62,7 +62,7 @@ const Footer = () => {
           </form>
         </div>
         <aside>
-          <p className="text-slate-400 text-center">Copyright © 2024 - All right reserved by AR Gym</p>
+          <p className="text-slate-400 text-center">Copyright © 2024 - All right reserved by ARGym</p>
         </aside>
       </footer>
     </div>

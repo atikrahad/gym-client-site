@@ -5,6 +5,7 @@ import UpdateRofile from "./Profilecomponents/UpdateRofile";
 import Uploadimg from "../../OthersComponents/Uploadimg";
 import axiosPublic from "../../Api/axiosPublic";
 import { FiUpload } from "react-icons/fi";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,9 @@ const Profile = () => {
 
   return (
     <div className="max-w-screen-md py-40 mx-auto">
+      <Helmet>
+        <title>ARGym | Profile</title>
+      </Helmet>
       <div className="h-72 relative overflow-hidden rounded-sm bg-[#2424277a]">
         <img
           className="w-full"

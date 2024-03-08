@@ -5,7 +5,7 @@ import { useState } from "react";
 import useAuth from "../../Contextapi/useAuth";
 const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { emailLogin, googleLogin } = useAuth();
+  const { emailLogin } = useAuth();
   const location = useLocation();
   const from = location?.state?.from?.pathname || '/'
   const navigate = useNavigate();
@@ -23,14 +23,7 @@ const Login = () => {
       });
   };
 
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then((res) => {
-        console.log(res);
-        navigate(`${from}`);
-      })
-      .catch((error) => console.log(error));
-  };
+  
 
   return (
     <div
@@ -86,9 +79,6 @@ const Login = () => {
               <h1 className="text-slate-300">
                 New member? <NavLink to="/register">Register</NavLink>
               </h1>
-              <button onClick={handleGoogleLogin} className="btn-bg">
-                Login with Google
-              </button>
             </form>
           </div>
         </div>

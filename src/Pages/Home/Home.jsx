@@ -7,6 +7,7 @@ import bannerimg from '../../assets/Home/banner/maxresdefault.jpg'
 import ResentBlogs from "./homeComponents/ResentBlogs";
 import Reviews from "./homeComponents/Reviews";
 import Whychoose from "./homeComponents/Whychoose";
+import { Helmet } from "react-helmet";
 // import useUser from "../../Hooks/useUser";
 
 const Home = () => {
@@ -14,6 +15,9 @@ const Home = () => {
 // console.log(userData);
   return (
     <div>
+      <Helmet>
+        <title>ARGym | Home</title>
+      </Helmet>
       <Homebenner></Homebenner>
       <About></About>
       <Status></Status>
