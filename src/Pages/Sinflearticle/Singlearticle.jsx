@@ -4,6 +4,7 @@ import axiosPublic from "../../Api/axiosPublic";
 import useAuth from "../../Contextapi/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { MdDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Singlearticle = () => {
   const location = useLocation();
@@ -16,14 +17,37 @@ const Singlearticle = () => {
     axiosPublic.get(`/article/${makeId}`).then((res) => setItem(res.data));
   }, [makeId]);
 
-  const { refetch, data : data=[] } = useQuery({
+  const { refetch, data: data = [] } = useQuery({
     queryKey: ["comments", item?._id],
     queryFn: async () => {
       const res = await axiosPublic.get(`/comments?ids=${item?._id}`);
       return res.data;
     },
   });
-  console.log(data);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`/deletecomment?id=${id}`).then((res) => {
+          console.log(res.data);
+          refetch();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        });
+      }
+    });
+  };
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -76,15 +100,23 @@ const Singlearticle = () => {
       <div className="w-full space-y-3 md:w-[50%]">
         {data.map((item) => (
           <div key={item._id} className="flex gap-4">
-                <img className="w-12 h-12 rounded-full" src={item.commentAuthPic} alt="" />
+            <img
+              className="w-12 h-12 rounded-full"
+              src={item.commentAuthPic}
+              alt=""
+            />
             <div className="bg-[#2424277a] w-full p-3 rounded-md min-h-20">
-                <div className="flex items-center justify-between">
-                <h1 className="text-white font-semibold">{item.commentAuthname}</h1>
-                {
-                    user?.email === item?.commentAuthEmail && <button><MdDeleteOutline className="text-2xl main-color"/></button>
-                }
-                </div>
-                <p className="text-slate-400">{item.coment}</p>
+              <div className="flex items-center justify-between">
+                <h1 className="text-white font-semibold">
+                  {item.commentAuthname}
+                </h1>
+                {user?.email === item?.commentAuthEmail && (
+                  <button onClick={() => handleDelete(item._id)}>
+                    <MdDeleteOutline className="text-2xl main-color" />
+                  </button>
+                )}
+              </div>
+              <p className="text-slate-400">{item.coment}</p>
             </div>
           </div>
         ))}

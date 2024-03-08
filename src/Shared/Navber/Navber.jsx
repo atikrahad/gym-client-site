@@ -9,10 +9,12 @@ import { VscAccount } from "react-icons/vsc";
 
 
 import useAuth from "../../Contextapi/useAuth";
+import useUser from "../../Hooks/useUser";
 const Navber = () => {
   const [stickyclass, setStickyclass] = useState("");
   const [shadow, setShadow] = useState("none");
   const { user , logedOut} = useAuth();
+  const [userData] = useUser()
   useEffect(() => {
     window.addEventListener("scroll", fixdNav);
     return () => {
@@ -59,7 +61,7 @@ const Navber = () => {
                     <div tabIndex={0} role="button" className="">
                     <img
                     className="w-16 rounded-full h-16"
-                    src={user?.photoURL}
+                    src={userData?.image}
                     alt=""
                   />
                     </div>

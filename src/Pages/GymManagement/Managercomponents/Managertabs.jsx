@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import Allaplication from "./Allaplication";
