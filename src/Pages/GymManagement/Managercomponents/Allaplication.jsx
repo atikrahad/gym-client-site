@@ -3,9 +3,7 @@ import axiosPublic from "../../../Api/axiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
 const Allaplication = () => {
-  
-
-  const {refetch, data: Data = [] } = useQuery({
+  const { refetch, data: Data = [] } = useQuery({
     queryKey: ["accept"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/applications?position=${"pending"}`);
@@ -13,29 +11,58 @@ const Allaplication = () => {
     },
   });
 
-  const handleAcceft = (email) =>{
+  const handleAcceft = (email) => {
     const updateUser = {
-      userType : "trainer"
-    }
+      userType: "trainer",
+    };
     const updatePosition = {
-      applicationPosition : "accepted"
-    }
-    axiosPublic.put(`/updateusertype?email=${email}`, updateUser)
-    .then(res => {
-      console.log(res.data)
-      axiosPublic.put(`/updateposition?email=${email}`, updatePosition)
-    .then(res => console.log(res.data))
-    })
+      applicationPosition: "accepted",
+    };
+    axiosPublic
+      .put(`/updateusertype?email=${email}`, updateUser)
+      .then((res) => {
+        console.log(res.data);
+        axiosPublic
+          .put(`/updateposition?email=${email}`, updatePosition)
+          .then((res) => console.log(res.data));
+      });
     Swal.fire({
-     
       icon: "success",
       title: "Successfully accepted application",
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
-    refetch()
-    
-  }
+    refetch();
+  };
+
+  const handleRejected = (email) => {
+    const updatePosition = {
+      applicationPosition: "rejected",
+    };
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This member is'nt able to be trainer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Reject it",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic
+          .put(`/updateposition?email=${email}`, updatePosition)
+          .then((res) => {
+            console.log(res.data);
+            refetch()
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -53,10 +80,18 @@ const Allaplication = () => {
           </div>
           <p className="text-slate-500 my-5">{item?.letter}</p>
           <div className="flex gap-4">
-            <button onClick={()=>handleAcceft(item?.applicantEmail)} className="btn-bg">
+            <button
+              onClick={() => handleAcceft(item?.applicantEmail)}
+              className="btn-bg"
+            >
               ACCEFT
             </button>
-            <button className="btn-bg">REJECT</button>
+            <button
+              onClick={() => handleRejected(item?.applicantEmail)}
+              className="btn-bg"
+            >
+              REJECT
+            </button>
           </div>
         </div>
       ))}
