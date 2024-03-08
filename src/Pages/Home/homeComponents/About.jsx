@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import image from "../../../assets/Home/about/img.jpg";
 import { MdArrowOutward } from "react-icons/md";
 import AOS from 'aos';

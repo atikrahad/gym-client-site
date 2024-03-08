@@ -6,7 +6,7 @@ import axiosPublic from "../Api/axiosPublic";
 const useUser = () => {
     const {user}= useAuth()
     console.log(user?.email);
-    const {data: userData,refetch, isPending} = useQuery({
+    const {data: userData, refetch, isPending} = useQuery({
         queryKey: ["user", user?.email],
         queryFn : async () => {
             const res = await axiosPublic.get(`/user?email=${user?.email}`)

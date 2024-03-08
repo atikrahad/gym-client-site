@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
     GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -13,6 +14,7 @@ export const Authcontext = createContext();
 const Authprovider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [image, setImage] = useState()
 
   const createAcount = (email, password) => {
     setLoading(true);
@@ -48,7 +50,9 @@ const Authprovider = ({ children }) => {
     googleLogin,
     loading,
     setLoading,
-    logedOut
+    logedOut,
+    image,
+    setImage
   };
 
   return (

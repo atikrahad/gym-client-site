@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Banner from "../../Shared/Components/Banner";
 import img from "../../assets/plan/img.jpg";
 import { FaDollarSign } from "react-icons/fa";
